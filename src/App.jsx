@@ -7,10 +7,13 @@ function App() {
   function handleLogout() {
     setIsLoggedIn((prev) => !prev);
   }
+  function handleLogin() {
+    setIsLoggedIn((prev) => !prev);
+  }
   return (
     <React.Fragment>
       <MainHeader isLoggedIn={isLoggedIn} onLogout={handleLogout} />
-      <MainContent isLoggedIn={isLoggedIn} />
+      <MainContent isLoggedIn={isLoggedIn} onLogin={handleLogin} />
     </React.Fragment>
   );
 }

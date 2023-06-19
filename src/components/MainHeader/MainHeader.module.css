@@ -1,0 +1,12 @@
+.header {
+  padding: 0.5rem 1rem;
+  background-color: #7961ff;
+  display: flex;
+  align-items: center;
+  color: white;
+  justify-content: space-between;
+}
+
+.header h2 {
+  margin: 0;
+}
