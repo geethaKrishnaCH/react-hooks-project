@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "../UI/Card/Card";
 import styles from "./Login.module.css";
 import Button from "../UI/Button/Button";
@@ -9,28 +9,35 @@ function Login({ onLogin }) {
   const [passwordIsValid, setPasswordIsValid] = useState();
 
   function validateEmail(email) {
-    const emailFormat = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+    const emailFormat = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*\.\w{2,3}$/;
     return emailFormat.test(email);
   }
+
+  // console.log(formIsValid);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      console.log("inside useEffect");
+      setFormIsValid(
+        validateEmail(user.email) && user.password.trim().length > 6
+      );
+    }, 500);
+    return () => {
+      console.log("timeout cleared");
+      clearTimeout(timeout);
+    };
+  }, [user]);
 
   function handleEmailChange(event) {
     setUser((prev) => {
       return { ...prev, email: event.target.value };
     });
-    // validateEmailHandler();
-    setFormIsValid(
-      validateEmail(event.target.value) && user.password.trim().length > 6
-    );
   }
 
   function handlePasswordChange(event) {
     setUser((prev) => {
       return { ...prev, password: event.target.value };
     });
-    // validatePasswordHandler();
-    setFormIsValid(
-      event.target.value.trim().length > 6 && validateEmail(user.email)
-    );
   }
 
   const validateEmailHandler = () => {
