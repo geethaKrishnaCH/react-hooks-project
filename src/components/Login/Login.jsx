@@ -3,35 +3,43 @@ import Card from "../UI/Card/Card";
 import styles from "./Login.module.css";
 import Button from "../UI/Button/Button";
 function Login({ onLogin }) {
-  const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   const [user, setUser] = useState({ email: "", password: "" });
   const [formIsValid, setFormIsValid] = useState(false);
   const [emailIsValid, setEmailIsValid] = useState();
   const [passwordIsValid, setPasswordIsValid] = useState();
 
+  function validateEmail(email) {
+    const emailFormat = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+    return emailFormat.test(email);
+  }
+
   function handleEmailChange(event) {
-    setUser({ ...user, email: event.target.value });
+    setUser((prev) => {
+      return { ...prev, email: event.target.value };
+    });
+    // validateEmailHandler();
     setFormIsValid(
-      event.target.value.match(mailformat) && user.password.trim().length > 6
+      validateEmail(event.target.value) && user.password.trim().length > 6
     );
   }
 
   function handlePasswordChange(event) {
-    setUser({ ...user, password: event.target.value });
+    setUser((prev) => {
+      return { ...prev, password: event.target.value };
+    });
+    // validatePasswordHandler();
     setFormIsValid(
-      event.target.value.trim().length > 6 && user.email.match(mailformat)
+      event.target.value.trim().length > 6 && validateEmail(user.email)
     );
   }
 
   const validateEmailHandler = () => {
-    setEmailIsValid(user.email.match(mailformat));
+    setEmailIsValid(validateEmail(user.email));
   };
 
   const validatePasswordHandler = () => {
     setPasswordIsValid(user.password.trim().length > 6);
   };
-
-  console.log(emailIsValid === false, passwordIsValid);
 
   return (
     <Card cssClasses={styles["form-container"]}>
@@ -40,7 +48,7 @@ function Login({ onLogin }) {
         <input
           type="text"
           name="email"
-          className={emailIsValid === true ? "" : styles.invalid}
+          className={emailIsValid === false ? styles.invalid : ""}
           onChange={handleEmailChange}
           value={user.email}
           onBlur={validateEmailHandler}
@@ -49,7 +57,7 @@ function Login({ onLogin }) {
         <input
           type="password"
           name="password"
-          className={passwordIsValid === true ? "" : styles.invalid}
+          className={passwordIsValid === false ? styles.invalid : ""}
           onChange={handlePasswordChange}
           value={user.password}
           onBlur={validatePasswordHandler}

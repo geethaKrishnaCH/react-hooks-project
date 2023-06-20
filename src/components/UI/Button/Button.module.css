@@ -15,6 +15,11 @@
   opacity: 0.75;
 }
 
+.button:focus {
+  outline: none;
+  opacity: 0.75;
+}
+
 .button:disabled,
 .button:hover:disabled {
   background-color: gray;
