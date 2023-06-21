@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Card from "../UI/Card/Card";
+import Card from "../ui/card/Card";
 import styles from "./Login.module.css";
-import Button from "../UI/Button/Button";
+import Button from "../ui/button/Button";
 function Login({ onLogin }) {
   const [user, setUser] = useState({ email: "", password: "" });
   const [formIsValid, setFormIsValid] = useState(false);

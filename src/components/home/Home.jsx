@@ -1,4 +1,4 @@
-import Card from "../UI/Card/Card";
+import Card from "../ui/card/Card";
 import styles from "./Home.module.css";
 
 function Home() {

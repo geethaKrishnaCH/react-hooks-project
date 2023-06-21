@@ -1,4 +1,4 @@
-import Button from "../UI/Button/Button";
+import Button from "../ui/button/Button";
 import styles from "./Navigation.module.css";
 
 function Navigation({ isLoggedIn, onLogout }) {

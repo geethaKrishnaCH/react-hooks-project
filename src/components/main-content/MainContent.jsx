@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import styles from "./MainContent.module.css";
-import Login from "../Login/Login";
-import Home from "../Home/Home";
+import Login from "../login/Login";
+import Home from "../home/Home";
 function MainContent({ isLoggedIn, onLogin }) {
   return (
     <Fragment>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import MainHeader from "./components/MainHeader/MainHeader";
-import MainContent from "./components/MainContent/MainContent";
+import MainHeader from "./components/main-header/MainHeader";
+import MainContent from "./components/main-content/MainContent";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
