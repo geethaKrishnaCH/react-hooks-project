@@ -55,6 +55,7 @@ function Login({ onLogin }) {
         <input
           type="text"
           name="email"
+          placeholder="email"
           className={emailIsValid === false ? styles.invalid : ""}
           onChange={handleEmailChange}
           value={user.email}
@@ -64,6 +65,7 @@ function Login({ onLogin }) {
         <input
           type="password"
           name="password"
+          placeholder="password"
           className={passwordIsValid === false ? styles.invalid : ""}
           onChange={handlePasswordChange}
           value={user.password}
