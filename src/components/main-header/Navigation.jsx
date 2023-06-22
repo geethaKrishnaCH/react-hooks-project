@@ -8,7 +8,7 @@ function Navigation({ isLoggedIn, onLogout }) {
   return (
     <>
       <Nav className="me-auto">
-        <Nav.Link>Users</Nav.Link>
+        <Nav.Link>Home</Nav.Link>
         <Nav.Link>Admin</Nav.Link>
       </Nav>
       <Button color="primary" size={"lg"} onClick={onLogout}>
