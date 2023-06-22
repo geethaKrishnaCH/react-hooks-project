@@ -13,15 +13,13 @@ function Login({ onLogin }) {
     return emailFormat.test(email);
   }
 
-  // console.log(formIsValid);
-
   useEffect(() => {
     const timeout = setTimeout(() => {
       console.log("inside useEffect");
       setFormIsValid(
         validateEmail(user.email) && user.password.trim().length > 6
       );
-    }, 500);
+    }, 200);
     return () => {
       console.log("timeout cleared");
       clearTimeout(timeout);
@@ -71,7 +69,7 @@ function Login({ onLogin }) {
           value={user.password}
           onBlur={validatePasswordHandler}
         />
-        <Button onClick={onLogin} disabled={!formIsValid}>
+        <Button onClick={onLogin} disabled={!formIsValid} block={true}>
           Login
         </Button>
       </form>

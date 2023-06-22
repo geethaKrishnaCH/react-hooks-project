@@ -1,20 +1,20 @@
+import Nav from "react-bootstrap/Nav";
 import Button from "../ui/button/Button";
-import styles from "./Navigation.module.css";
 
 function Navigation({ isLoggedIn, onLogout }) {
   if (!isLoggedIn) {
     return;
   }
   return (
-    <div>
-      <ul>
-        <li>Users</li>
-        <li>Admin</li>
-        <li>
-          <Button onClick={onLogout}>Logout</Button>
-        </li>
-      </ul>
-    </div>
+    <>
+      <Nav className="me-auto">
+        <Nav.Link>Users</Nav.Link>
+        <Nav.Link>Admin</Nav.Link>
+      </Nav>
+      <Button color="primary" size={"lg"} onClick={onLogout}>
+        Logout
+      </Button>
+    </>
   );
 }
 

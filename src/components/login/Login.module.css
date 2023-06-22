@@ -1,12 +1,12 @@
 .form-container {
   margin: 2rem auto;
-  width: 500px;
+  width: 600px;
   max-width: 80%;
   padding: 4rem;
 }
 
 .form-control {
-  padding-left: 2rem;
+  padding-left: 1rem;
 }
 
 .form-control label {
@@ -22,7 +22,7 @@
   line-height: 1.25;
   font-size: 20px;
   margin-bottom: 0.75rem;
-  max-width: 80%;
+  max-width: 90%;
   width: 400px;
   border-radius: 4px;
   border: 1px solid #444444;

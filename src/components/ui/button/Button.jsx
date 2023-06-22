@@ -1,14 +1,17 @@
-import styles from "./Button.module.css";
-function Button({ children, onClick, type, disabled }) {
+import BootstrapButton from "react-bootstrap/Button";
+function Button({ children, onClick, type, disabled, size, color, outline }) {
+  const variant = outline ? `outline-${color}` : color;
+
   return (
-    <button
-      type={type ? type : "button"}
-      className={styles.button}
+    <BootstrapButton
+      variant={variant}
+      size={size}
+      type={type}
       onClick={onClick}
-      disabled={disabled ? disabled : false}
+      disabled={disabled}
     >
       {children}
-    </button>
+    </BootstrapButton>
   );
 }
 
